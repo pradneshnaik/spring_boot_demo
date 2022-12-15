@@ -13,6 +13,8 @@ import com.example.studentmanagement.repository.StudentRepository;
 
 import lombok.AllArgsConstructor;
 
+/* It is used to mark the class as a service provider.
+So overall @Service annotation is used with classes that provide some business functionalities. */
 @Service
 @AllArgsConstructor
 public class StudentService {

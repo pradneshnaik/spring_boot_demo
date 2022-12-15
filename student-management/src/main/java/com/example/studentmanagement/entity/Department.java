@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +15,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// defines that a class can be mapped to a table
 @Entity
+//It specifies the table in the database with which this entity is mapped.
 @Table(name = "department")
 @Getter
 @Setter
@@ -25,7 +26,7 @@ import lombok.Setter;
 public class Department {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "department_id")
   private long departmentId;
   private String name;

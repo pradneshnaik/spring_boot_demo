@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.studentmanagement.dto.AuthRequest;
 import com.example.studentmanagement.dto.StudentRequest;
-import com.example.studentmanagement.entity.Student;
 import com.example.studentmanagement.service.StudentService;
 
 import lombok.AllArgsConstructor;
 
+//RestController is used for making restful web services.
+//This annotation is used at the class level and allows the class to handle the requests made by the client.
 @RestController
+// RequestMapping annotation is used to map web requests onto specific handler classes
 @AllArgsConstructor
 @RequestMapping("/student")
-@CrossOrigin
 public class StudentController {
 
   private final StudentService studentService;
@@ -45,11 +44,6 @@ public class StudentController {
     String result = studentService.registerStudent(studentRequest);
     resultMap.put("result", result);
     return resultMap;
-  }
-
-  @GetMapping("/{email}")
-  public Student getStudentByEmail(@PathVariable String email) {
-    return studentService.findByEmail(email).orElse(null);
   }
 
 }

@@ -12,10 +12,12 @@ import com.example.studentmanagement.service.DepartmentService;
 
 import lombok.AllArgsConstructor;
 
+//RestController is used for making restful web services.
+//This annotation is used at the class level and allows the class to handle the requests made by the client.
 @RestController
+// RequestMapping annotation is used to map web requests onto specific handler classes
 @RequestMapping("/department")
 @AllArgsConstructor
-@CrossOrigin
 public class DepartmentController {
 
   private final DepartmentService departmentService;
